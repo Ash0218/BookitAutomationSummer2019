@@ -43,7 +43,7 @@ public class APIStepDefinitions {
                         accept(contentType).
                         auth().oauth2(token).
                     when().
-                        get(string);
+                        get(string).prettyPeek();
     }
 
     // Then user should be able to see 18 rooms <- from GetRooms.feature
