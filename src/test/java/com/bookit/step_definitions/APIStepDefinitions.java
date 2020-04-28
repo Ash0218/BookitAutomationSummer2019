@@ -4,17 +4,21 @@ import com.bookit.utilities.APIUtilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class APIStepDefinitions {
     private Response response;
     private String token;
+    private JsonPath jsonPath;
+    private String contentType;
+    // we can share this variable among step definitions.
 
     @Given("authorization token is provided for {string}")
     public void authorization_token_is_provided_for(String role) {
         // (String string) -> changed to (String role) to make the next line has "role"
         token = APIUtilities.getToken(role);
-        // (role) is from previous line (inserted role as a parameter)
+        // (role) is from previous line (inserted role as a parameter). It must be the same with the previous one.
     }
 
     @Given("user accepts content type as {string}")
