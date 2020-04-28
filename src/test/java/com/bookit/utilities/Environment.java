@@ -18,6 +18,7 @@ public class Environment {
     public static final String LEADER_USERNAME;
     public static final String LEADER_PASSWORD;
     public static final String API_BASE_PATH;
+// final: makes no one can change them
 
     static {
         Properties properties = null;
@@ -25,6 +26,7 @@ public class Environment {
         try {
             //https://docs.oracle.com/javase/tutorial/java/data/numberformat.html
             String path = System.getProperty("user.dir") + String.format("/src/test/resources/environment/%s.properties", environment);
+            // %s replaces environment on the right. For more information -> google: string number formatting in java
             FileInputStream input = new FileInputStream(path);
             properties = new Properties();
             properties.load(input);
