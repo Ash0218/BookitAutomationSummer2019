@@ -11,9 +11,14 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/bookit/step_definitions",
-        dryRun = false,
-        tags = "@api"
+        dryRun = true,
+        tags = "@api and @create_student"
         // run after this
+        // 1. Changed tags="@api" to tags="@api and @create_student"
+        //  after adding the new scenario, @create_student
+        // 2. change dryRun = false to dryRun = true
+        // 3. run
+        // 4. you will see the result. Copy it. ex: @when...
 )
 public class CucumberRunner {
 }
