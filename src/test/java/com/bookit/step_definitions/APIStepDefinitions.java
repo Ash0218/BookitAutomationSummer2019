@@ -1,5 +1,6 @@
 package com.bookit.step_definitions;
 
+import com.bookit.pojos.Room;
 import com.bookit.utilities.APIUtilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,8 +10,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static io.restassured.RestAssured.*;
 
@@ -86,6 +86,24 @@ public class APIStepDefinitions {
 
     @Then("user should be able to see all room names")
     public void user_should_be_able_to_see_all_room_names() {
+        List<Room> rooms = response.jsonPath().getList("", Room.class); // 1
+
+      //  Collections.sort(rooms); // 4
+        // #4 will not work bc list is Unmodifiable, so we cannot
+        //  change order.
+
+        for (Room room: rooms){ // 2
+            System.out.printf(room.getName()); // 3
+        }
+
+        System.out.printf("################## AFTER SORTING ######################"); // 5
+        // Create new list to overcome the issue withUnmodifiable list
+        List<Room> rooms2 = new ArrayList<>(rooms); // 6
+        Collections.sort(rooms2); // 7
+
+        for (Room room: rooms2){
+            System.out.printf(room.getName()); // 8
+        }
 
     }
 

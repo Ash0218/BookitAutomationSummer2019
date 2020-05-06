@@ -14,7 +14,7 @@ package com.bookit.pojos; // 020620
 import java.util.Objects;
 
 // 020720
-public class Room {
+public class Room implements Comparable<Room> { // 12
     private int id; // 1
     private String name; // 2
     private String description; // 3
@@ -28,7 +28,9 @@ public class Room {
 
 
     // equals() and haseCode() from here (#11)
-    // It checks if 2 room objects are equal
+    // It checks if 2 room objects are equal. Otherwise,  default
+    //  equals method will be used and it checks only if 2 variables
+    //  point on the same object in the memory (heap)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -120,4 +122,12 @@ public class Room {
                 ", withWhiteBoard=" + withWhiteBoard +
                 '}';
     } // toString method till here (#10)
+
+
+    // #13 appeared after #12 implementation.
+    @Override
+    public int compareTo(Room o) {
+        return this.name.compareTo(o.getName()); // 14
+    }
+
 }
