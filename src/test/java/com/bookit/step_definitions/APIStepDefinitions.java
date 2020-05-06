@@ -22,6 +22,7 @@ public class APIStepDefinitions {
     private ContentType contentType;
     // we can share this variable among step definitions.
 
+
     @Given("authorization token is provided for {string}")
     public void authorization_token_is_provided_for(String role) {
         // (String string) -> changed to (String role) to make the next line has "role"
@@ -81,5 +82,17 @@ public class APIStepDefinitions {
 
         }
     }
+
+
+    @Then("user should be able to see all room names")
+    public void user_should_be_able_to_see_all_room_names() {
+
+    }
+
+
+    @Then("user deletes previously added students")
+    public void user_deletes_previously_added_students(List<Map<String, String>> students) {
+
+        }
 
 }
