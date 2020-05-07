@@ -114,7 +114,10 @@ public class APIStepDefinitions {
         // "name" is from the parameter of Postman. "name = Harvard",
         //  "name = meru" ... etc.
         Assert.assertTrue(actualRoomNames.containsAll(dataTable)); // 12
-        }
+        // assert true that the actualRoomNames contains the contents in dataTable
+        // "dataTable" in #12 must be the same with "dataTable" in #10
+        // "List<String>" in #11 must be the same with "List<String>" in #10
+    }
 
 
     @Then("user deletes previously added students")
