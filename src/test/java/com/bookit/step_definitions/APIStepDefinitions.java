@@ -13,6 +13,7 @@ import org.junit.Assert;
 import java.util.*;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 
 public class APIStepDefinitions {
@@ -104,8 +105,16 @@ public class APIStepDefinitions {
         for (Room room: rooms2){
             System.out.printf(room.getName()); // 8
         }
-
     }
+
+
+    @Then("user payload contains following room names:") // 9
+    public void user_payload_contains_following_room_names(List<String> dataTable) { // 10
+        List<String> actualRoomNames = response.jsonPath().getList("name"); // 11
+        // "name" is from the parameter of Postman. "name = Harvard",
+        //  "name = meru" ... etc.
+        Assert.assertTrue(actualRoomNames.containsAll(dataTable)); // 12
+        }
 
 
     @Then("user deletes previously added students")

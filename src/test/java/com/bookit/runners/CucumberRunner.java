@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/bookit/step_definitions",
         dryRun = false,
-        tags = "@print_room_names"
+        tags = "@verify_room_names"
         // run after this
         // 1. Changed tags="@api" to tags="@api and @create_student"
         //  after adding the new scenario, @create_student
