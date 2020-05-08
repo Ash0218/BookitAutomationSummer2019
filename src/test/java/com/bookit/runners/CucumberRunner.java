@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/bookit/step_definitions",
-        dryRun = true,
+        dryRun = false,
         tags = "@delete_student"
+
         // run after this
         // 1. Changed tags="@api" to tags="@api and @create_student"
         //  after adding the new scenario, @create_student
