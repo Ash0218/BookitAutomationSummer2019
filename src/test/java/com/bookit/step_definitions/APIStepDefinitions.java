@@ -141,6 +141,12 @@ public class APIStepDefinitions {
     }
 
 
+    @When("user verifies that payload contains {string} message") // 18
+    public void user_verifies_that_payload_contains_message(String string) { // 19
+        response.then().assertThat().body("", contains(string)); // 20
+    }
+
+
     @Then("user deletes previously added students")
     public void user_deletes_previously_added_students(List<Map<String, String>> students) {
 
