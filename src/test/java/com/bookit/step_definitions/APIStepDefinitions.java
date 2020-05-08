@@ -126,7 +126,11 @@ public class APIStepDefinitions {
          // without response, we cannot share with other step definitions
                         accept(contentType).auth().oauth2(token).
                     when().
-                        delete(string); // 18
+                        delete(string).prettyPeek(); // 18
+        // use student id to delete student bc in DeleteStudent.feature,
+        //  we used id to exclude student.
+        // In Postman, it shows "id": 5743 -> go to DeleteStudent.feature
+        //  and change "/api/students/{id}" to "/api/students/5743"
     }
 
 
