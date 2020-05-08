@@ -1,5 +1,6 @@
 # 020720: #1 from here -------------------------------
-  Feature: Delete Student
+@delete_student
+Feature: Delete Student
 
     Scenario Outline: Delete student as <role> and verify status code 403 (negative)
       Given authorization token is provided for "<role>"

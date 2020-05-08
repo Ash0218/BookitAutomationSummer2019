@@ -120,6 +120,23 @@ public class APIStepDefinitions {
     }
 
 
+    @When("user sends DELETE request to {string} to exclude student") // 13
+    public void user_sends_DELETE_request_to_to_exclude_student(String string) { // 14
+         response = given().
+         // without response, we cannot share with other step definitions
+                        accept(contentType).auth().oauth2(token).
+                    when().
+                        delete(string); // 18
+    }
+
+
+    @When("user verifies that status line contains {string}") // 15
+    public void user_verifies_that_status_line_contains(String string) { // 16
+        Assert.assertTrue(response.statusLine().contains(string)); // 17
+        // "string" in #17 must be the same from "string" in #14
+    }
+
+
     @Then("user deletes previously added students")
     public void user_deletes_previously_added_students(List<Map<String, String>> students) {
 
