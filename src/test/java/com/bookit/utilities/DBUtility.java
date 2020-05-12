@@ -19,8 +19,7 @@ public class DBUtility {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-    }
+    } // it creates DataBase connection
 
     public static void createDBConnection(String url) {
         try {
@@ -29,8 +28,7 @@ public class DBUtility {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-    }
+    } // it creates DataBase connection
 
     public static void destroy() {
         try {
@@ -47,8 +45,7 @@ public class DBUtility {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-    }
+    } // it closes DataBase connection
 
     /**
      *
@@ -59,7 +56,7 @@ public class DBUtility {
      */
     public static Object getCellValue(String query) {
         return getQueryResultList(query).get(0).get(0);
-    }
+    } // get value
 
     /**
      *
@@ -112,7 +109,8 @@ public class DBUtility {
 
         return rowList;
 
-    }
+    } // get result List
+
 
     /**
      *
@@ -137,7 +135,8 @@ public class DBUtility {
 
         return rowList;
 
-    }
+    } // get column data
+
 
     /**
      *

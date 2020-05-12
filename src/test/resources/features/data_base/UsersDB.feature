@@ -1,5 +1,8 @@
 # 020720
   @db
+  # @db -> go to Hooks.java and you will see set up and tear down database with @db.
+  #  It has DBUtility which has all information for database test.
+
   # In my project, we never ever do db validation without UI validation.
   # Usually, in every scenario we add, edit, delete something on the UI.
   # Verify that action on the UI was successful
