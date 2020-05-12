@@ -149,7 +149,9 @@ public class APIStepDefinitions {
 
     @Then("user deletes previously added students")
     public void user_deletes_previously_added_students(List<Map<String, String>> students) {
-
+        for (Map<String, String> student: students){ // 21
+             response = APIUtilities.deleteMe(student.get("email"), student.get("password")); // 22
+        }
         }
 
 }

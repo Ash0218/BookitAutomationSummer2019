@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
-public class APIUtilities {
+public class APIUtilities implements Endpoints {
     private static String URI = Environment.BASE_URI;
 
     /**
@@ -57,7 +57,35 @@ public class APIUtilities {
     }
 
 
+    /** #1 starts here
+     * Delete user based on email and password
+     *
+     * @param email
+     * @param password
+     * @return response
+     *
+     * this does not delete students with same name.
+     */
+    public static Response deleteMe(String email, String password) {
+        String token = given().
+                queryParam("email", email).
+                queryParam("password", password).
+                when().
+                get("/sign").prettyPeek().jsonPath().getString("accessToken");
+        // user logs in with email and password.
 
+        int userToDelete = given().auth().oauth2(token).
+                when().
+                get("/api/users/me").jsonPath().getInt("id");
+        // we get user ID based on endpoint ("/api/users/me").
+
+        Response response = given().auth().oauth2(getToken("teacher")).delete(DELETE_STUDENT, userToDelete);
+        response.prettyPeek();
+        // we log in as a teacher and delete the user with this user ID (userToDelete).
+        // The users have different tokens.
+        return response;
+    }
+    // #1 ends here
 
 
     /**

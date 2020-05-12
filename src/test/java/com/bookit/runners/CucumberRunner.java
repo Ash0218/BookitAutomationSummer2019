@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
         glue = "com/bookit/step_definitions",
         dryRun = false,
         tags = "@delete_student and not @ignore"
+        // "and not @ignore" means that do not run scenarios with this annotation.
 
         // run after this
         // 1. Changed tags="@api" to tags="@api and @create_student"
